@@ -15,7 +15,7 @@ export default function Home() {
   const step = 20
 
   useEffect(() => {
-    axios.get('http://localhost:5078/feedback')
+    axios.get('http://ec2-13-233-212-1.ap-south-1.compute.amazonaws.com/feedback')
     .then(res => {
         setFeedbacks(res.data)
         let page = getNextPage(res.data, step, currentPage)
@@ -29,7 +29,7 @@ export default function Home() {
 
 
   function handleFeedbackCreated(feedback) {
-    axios.post('http://localhost:5078/feedback', feedback)
+    axios.post('http://ec2-13-233-212-1.ap-south-1.compute.amazonaws.com/feedback', feedback)
     .then(res => {
       setShowCreateForm(false)
       setFeedbacks([feedback, ...feedbacks])
@@ -47,7 +47,7 @@ export default function Home() {
 
   function handleFeedbackUpdate(feedback) {
     console.log(feedback)
-    axios.patch('http://localhost:5078/feedback', feedback)
+    axios.patch('http://ec2-13-233-212-1.ap-south-1.compute.amazonaws.com/feedback', feedback)
     .then(res => {
         setFeedback(feedback)
     }).catch(err => {
@@ -56,7 +56,7 @@ export default function Home() {
   }
 
   function handleFeedbackDelete(id) {
-    axios.delete('http://localhost:5078/feedback?id=' + id)
+    axios.delete('http://ec2-13-233-212-1.ap-south-1.compute.amazonaws.com/feedback' + id)
     .then(res => {
         setFeedback({})
         setShowFeedbackView(false)
