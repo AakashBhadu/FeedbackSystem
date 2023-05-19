@@ -133,7 +133,7 @@ export default function Home() {
             {
               Array.from({length: Math.ceil(feedbacks.length/step)}, (item, index) => {
                 return (
-                  <button className={`w-8 h-8 text-center rounded-full m-4 ${index + 1 == currentPage ? "bg-blue-700 text-white" : "bg-white text-black"} border border-solid border-black`} onClick={handlePrev}>{index + 1}</button>
+                  <button className={`w-8 h-8 text-center rounded-full m-4 ${index + 1 == currentPage ? "bg-blue-700 text-white" : "bg-white text-black"} border border-solid border-black`} onClick={handlePrev} key={index}>{index + 1}</button>
                 )
               })
             }
